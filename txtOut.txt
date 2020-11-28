@@ -1,2 +1,0 @@
-This is what is known about the avocado: ${txtIn}. 
-Created on ${Date.now()}
