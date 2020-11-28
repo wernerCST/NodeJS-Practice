@@ -6,15 +6,14 @@ const fs = require('fs');
 // Blocking..
 // Reead a file.
 const textIn = fs.readFileSync('./text/input.txt', 'utf-8');
-//console.log(textIn);
-// Write onto a file.
+console.log(textIn);
 
+// Write to a file.
 const textOut = 'This is text being written on to the file on: ' + Date.now();
 fs.writeFileSync('./text/output.txt', textOut);
-//console.log('File has beenn written');
+console.log('File has beenn written');
 
 // Non-blocking, assyncchronous way of reading a file.
-
 fs.readFile('./text/start.txt', 'utf-8', (err, data1) => {
     if(err) return console.log('ERROR!! :\\')
     // The text inside the first file is the name of the file being read here.
