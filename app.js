@@ -1,8 +1,10 @@
 const fs = require('fs');
 const express = require('express');
 
-
 const app = express();
+
+// Middleware, that can modift the incomming request data
+app.use(express.json());
 
 // app.get('/', (req, res) => {
 //     // res.status(200).send('Hello from the server side');
@@ -26,6 +28,24 @@ app.get('/api/v1/tours', (req, res) => {
         data: {tours}
     });
 });
+
+app.post('/api/v1/tours', (req, res) => {
+    // console.log(req.body);
+    const newID = tours[tours.length - 1].id + 1;
+    const newTour = Object.assign({id: newID}, req.body);
+    tours.push(newTour);
+    // Never ever ever, block the event loop from a call back fundtion.
+    fs.writeFile(`${__dirname}/dev-data/data/tours-simple.json`, JSON.stringify(tours), err => {
+        if(err) { res.status(500).send("server error");}
+        res.status(201).json({
+            status: 'success',
+            data: {
+                tour: newTour
+            }
+        });
+    });
+});
+
 
 const port = 3000;
 app.listen(port, () => {
