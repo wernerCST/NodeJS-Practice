@@ -8,3 +8,37 @@ Express allows for rpid deevelopment of node.js applications: we don't have to r
 Express makes it easier to organize our application into the MVC architecture.
 
 Routing means how an application response to a certain client request, so to a certain URL...
+
+API: Aplication Programing Interface: a piece of softwaer that can be  used by another peice of 
+    softwear, in order to allow applications to talk  to each other.
+
+    But Applications can be other things:
+        - Node.js fs is an api we are using to read files.
+        - browser DOM, we are using the dom api to manipulate the data.
+        - with object-oriented Programing when exposing methods to the public, we are creating an API.
+
+REST (Representational State Transfer): Is a way of building web API's in a logical 
+                                        way making them simple to consume.
+    To build a REST API:
+        1. Seperate API into logical resources
+        2. Expose structured, resource-based URL's
+        3. Use the right HTTP methods (verbs)
+        4. Send data as JSON (usually)
+        5. Be stateless
+    
+    resource  -> Object or Representation of something, which has data associated to it.
+                 Any information that can be named can be resource. (users, for exmaple)..
+    
+    PUT -> the client sends the entire updated object.
+    PATCH -> the client send only the part of the object that has been changed.
+    POST -> creates a new resource 
+    DELTE -> the id or any unquie identafier should be in the url so it can be deleted.
+    GET -> retrive am object
+
+    CRUD = Creat, Read, Update, Delte.
+
+Stateless RESTful API: All state is handled on the client. This means that each request must contains       
+                       all the information necessary to process a certain request. the server should
+                       not have to remember previous requests.
+
+
