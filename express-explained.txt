@@ -42,3 +42,5 @@ Stateless RESTful API: All state is handled on the client. This means that each 
                        not have to remember previous requests.
 
 
+Param middlewaer: is middlewaer that runs only for certain paramaters, for instance write
+                  middlewaer that only runs when x param is present on the URL.
