@@ -1,10 +1,22 @@
 const fs = require('fs');
 const express = require('express');
+const morgan = require('morgan');
 
 const app = express();
 
+app.use(morgan('dev'))
 // Middleware, that can modift the incomming request data
 app.use(express.json());
+
+app.use((req, res, next) => {
+    req.requestTime = new Date().toISOString();
+    next();
+});
+
+app.use((req, res, next) => {
+    console.log('hello from the middleware');
+    next();
+});
 
 
 
