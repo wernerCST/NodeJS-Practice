@@ -97,6 +97,41 @@ const deleteTour = (req, res) => {
     }); 
 };
 
+const getAllUsers = (req, res) => {
+    res.status(500).json({
+        status: 'error',
+        data: 'Route is not yet deffined'
+    });
+};
+
+const createUser = (req, res) => {
+    res.status(500).json({
+        status: 'error',
+        data: 'Route is not yet deffined'
+    });
+};
+
+const getUser = (req, res) => {
+    res.status(500).json({
+        status: 'error',
+        data: 'Route is not yet deffined'
+    });
+};
+
+const updateUser = (req, res) => {
+    res.status(500).json({
+        status: 'error',
+        data: 'Route is not yet deffined'
+    });
+};
+
+const deleteUser = (req, res) => {
+    res.status(500).json({
+        status: 'error',
+        data: 'Route is not yet deffined'
+    });
+};
+
 
 
 // app.get('/api/v1/tours', getAllTours);
@@ -107,16 +142,35 @@ const deleteTour = (req, res) => {
 // app.patch('/api/v1/tours/:id', updateTour);
 // app.delete('/api/v1/tours/:id', deleteTour);
 
-app
- .route('/api/v1/tours')
+const tourRouter = express.Router();
+const userRouter = express.Router();
+
+
+
+tourRouter
+ .route('/')
  .get(getAllTours)
  .post(createTour);
 
- app
- .route('/api/v1/tours/:id')
+ tourRouter
+ .route('/:id')
  .get(getTourById)
  .patch(updateTour)
  .delete(deleteTour);
+
+ userRouter
+.route('/')
+.get(getAllUsers)
+.post(createUser);
+
+userRouter
+.route('/:id')
+.get(getUser)
+.patch(updateUser)
+.delete(deleteUser);
+
+app.use('/api/v1/tours', tourRouter);
+app.use('/api/v1/users', userRouter);
 
 const port = 3000;
 app.listen(port, () => {
