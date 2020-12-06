@@ -29,6 +29,27 @@ app.get('/api/v1/tours', (req, res) => {
     });
 });
 
+// Add : and a name to accept params off from the url, 
+// add a ? to make them optional
+app.get('/api/v1/tours/:id', (req, res) => {
+    console.log(req.params);
+    const id = req.params.id * 1;
+    
+    // if(id > tours.length) { 
+    if(id > tours.length) { 
+        return res.status(404).json({
+            status: 'fail',
+            message: 'Invalid ID'
+        });
+    }
+    
+    const tour = tours.find(el.id === id);
+    res.status(200).json({
+        status: 'success',
+        data: {tour}
+    });
+});
+
 app.post('/api/v1/tours', (req, res) => {
     // console.log(req.body);
     const newID = tours[tours.length - 1].id + 1;
