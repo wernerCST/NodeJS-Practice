@@ -1,0 +1,32 @@
+MongoDb -> is a NoSQL, each db can have one or more collections(table), and each    
+           collection can have one or more documents(rows)
+
+MongoDb is a document database with the scalability and flexibility that you want
+with the querying and indexing that you need.
+
+Key Features---
+Document based: MongoDB stores data in documents (field-value pair data structures, NoSQL);
+Scalable: Vary easy to distribute data across multiple machines as your users and amount of data grow;
+Flexibility: No document data schema required, so each document can have different number and type of fields;
+Performance: Embedded data models, indexing, sharding, flexible documents, native duplication, etc;
+
+BSON: Data format MongoDB uses for data storage. Like JSON, but typed. So MongoDB documents are typed.
+
+Embedding/Denormalizing: including related data into a single document. This allows for quicker access
+                         and easier data models (it's not always the best solution though);
+EX: Comments being related to a post...
+
+-- side notes
+A cluster on Atlas MongoDB is like an instance of our DB 
+
+Mongoose is an object data modeling (ODM) library for MongoDB and Node.js, a higher 
+level of abstraction.
+
+Mongoose allows for a rapid and simple development of MongoDB database interaction.
+
+Features: scemas to model data and relationships, easy data validation, simple query API,
+          Middleware, etc.
+
+Mongoose model: a wrapper for the schema, providing an interface to the database 
+                for crud operations.
+
